@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=speech&height=200&color=gradient&text=ARYAN%20TECH%20BOT&animation=blinking&fontAlign=36&fontAlignY=36&descAlign=62&reversal=false&textBg=false" width="100%">
+  <img src="https://capsule-render.vercel.app/api?type=speech&height=200&color=gradient&text=∆RY∆N%20TECH§%20BOT&animation=blinking&fontAlign=36&fontAlignY=36&descAlign=62&reversal=false&textBg=false" width="100%">
 </div>
 
 <p align="center">
@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Black+Ops+One&size=45&pause=1000&color=1BAFBA&center=true&vCenter=true&width=800&height=100&lines=AYRAN+TECH" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Black+Ops+One&size=45&pause=1000&color=1BAFBA&center=true&vCenter=true&width=800&height=100&lines=∆RY∆N+ȚËĊȞ" alt="Typing SVG" />
   </a>
 </p>
 
@@ -90,7 +90,7 @@
 </p>
 <p align="center">
 <a href="https://github.com/Next5x/ÄŖŸÄŅ-ȚËĊȞ/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Next5x/ÄŖŸÄŅ-ȚËĊȞ" />
+  <img src="https://contrib.rocks/image?repo=Next5x/∆ŖŸÄŅ-ȚËĊȞ§" />
 </a>
 </p>
 
@@ -101,5 +101,5 @@
 </p>
 
 <p align="right">
-  <b>Built with Passion by ÄŖŸÄŅ-ȚËĊȞ</b>
+  <b>Built with Passion by ÄŖŸÄŅ-ȚËĊȞ§</b>
 </p>
