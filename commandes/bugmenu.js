@@ -54,7 +54,7 @@ _Use these to test WhatsApp resilience:_
                 externalAdReply: {
                     title: "ARYAN-TECH 𝙱𝚄𝙶 𝙼𝙴𝙽𝚄",
                     body: "System Vulnerability Testing",
-                    thumbnailUrl: "https://files.catbox.moe/zm113g.jpg", 
+                    thumbnailUrl: "https://files.catbox.moe/e51g2r.jpg", 
                     sourceUrl: "https://wa.me/255637518095",
                     mediaType: 1
                 }
