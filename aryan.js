@@ -1372,7 +1372,57 @@ if (conf.AUTO_READ === 'yes') {
              
          
             /////////////////////////
-            
+
+            // ============= CHATBOT AUTOMATIC (Pollinations AI - Free) =============
+            try {
+                const chatbotEnabled = (conf.CHATBOT || "").toLowerCase() === "yes";
+                const isFromMe = ms.key.fromMe;
+                const isStatus = origineMessage === "status@broadcast";
+                const isNewsletter = origineMessage?.endsWith("@newsletter");
+                const hasText = texte && texte.trim().length > 0;
+                const isCommand = verifCom;
+
+                if (chatbotEnabled && hasText && !isFromMe && !isStatus && !isNewsletter && !isCommand) {
+
+                    // Groups: jibu tu ukimentioned au ukiquote bot
+                    const mentionedJids = ms.message?.extendedTextMessage?.contextInfo?.mentionedJid || [];
+                    const quotedParticipant = ms.message?.extendedTextMessage?.contextInfo?.participant || "";
+                    const botMentioned = mentionedJids.includes(idBot) || quotedParticipant === idBot;
+                    const shouldReply = !verifGroupe || botMentioned;
+
+                    if (shouldReply) {
+                        console.log("🤖 CHATBOT triggered:", auteurMessage);
+                        try {
+                            await zk.sendPresenceUpdate("composing", origineMessage);
+
+                            const encodedMsg = encodeURIComponent(texte.trim());
+                            const systemPrompt = encodeURIComponent(
+                                `Wewe ni AI assistant wa WhatsApp bot inayoitwa Rahmani MD. Jina lako ni Rahmani. Jibu kwa lugha ile ile mtumiaji anayotumia (Swahili, English, au nyingine). Jibu kwa ufupi na kwa njia ya kirafiki.`
+                            );
+
+                            const response = await axios.get(
+                                `https://text.pollinations.ai/${encodedMsg}?model=openai&system=${systemPrompt}&private=true`,
+                                { timeout: 20000, responseType: 'text' }
+                            );
+
+                            const reply = typeof response.data === 'string' ? response.data.trim() : null;
+
+                            if (reply) {
+                                await zk.sendPresenceUpdate("available", origineMessage);
+                                await zk.sendMessage(origineMessage, { text: `🤖 *Rahmani AI*\n\n${reply}` }, { quoted: ms });
+                                console.log("✅ CHATBOT replied");
+                            }
+                        } catch (e) {
+                            await zk.sendPresenceUpdate("available", origineMessage);
+                            console.log("CHATBOT error:", e.message);
+                        }
+                    }
+                }
+            } catch (chatbotErr) {
+                console.log("CHATBOT handler error:", chatbotErr.message);
+            }
+            // ============= END CHATBOT =============
+
             //execution des commandes   
             if (verifCom) {
                 //await await zk.readMessages(ms.key);
